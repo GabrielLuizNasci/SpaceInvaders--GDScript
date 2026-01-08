@@ -7,7 +7,7 @@
 size = Vector2(11, 9)
 
 [node name="YellowAlien" groups=["Enemy"] instance=ExtResource("1_g51fy")]
-speed = 300.0
+speed = 350.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.5, -0.5)
