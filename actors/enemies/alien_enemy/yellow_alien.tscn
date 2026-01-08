@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyxu8ybsfeoep"]
+
+[ext_resource type="PackedScene" uid="uid://b31dvxvu7ovti" path="res://actors/enemies/base_alien.tscn" id="1_g51fy"]
+[ext_resource type="Texture2D" uid="uid://xe7pbes52mb7" path="res://assets/sprites/base_enemy.png" id="2_sconc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x2i"]
+size = Vector2(11, 9)
+
+[node name="YellowAlien" groups=["Enemy"] instance=ExtResource("1_g51fy")]
+speed = 300.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_j3x2i")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_sconc")

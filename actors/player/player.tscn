@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://n1h4tvxxu3e6"]
+
+[ext_resource type="Script" uid="uid://cp0kuovp12u78" path="res://actors/player/player.gd" id="1_ilk7j"]
+[ext_resource type="Texture2D" uid="uid://bifwyayetes26" path="res://assets/sprites/player_spaceship.png" id="1_nvxhs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvxhs"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ilk7j"]
+radius = 5.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ilk7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_nvxhs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nvxhs")
+
+[node name="BlastSpawnPoint" type="Node2D" parent="."]
+position = Vector2(-1, -13)
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RestartDetectionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RestartDetectionArea"]
+shape = SubResource("CapsuleShape2D_ilk7j")
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
+[connection signal="body_entered" from="RestartDetectionArea" to="." method="_on_restart_detection_area_body_entered"]

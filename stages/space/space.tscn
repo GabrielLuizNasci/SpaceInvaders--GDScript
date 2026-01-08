@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0mh1xlp63r65"]
+
+[ext_resource type="Script" uid="uid://n5b1d65duhj8" path="res://stages/space/space.gd" id="1_bv8oe"]
+[ext_resource type="Script" uid="uid://cv35j2q6y7lrg" path="res://stages/space/parallax_background.gd" id="1_l6nkh"]
+[ext_resource type="Texture2D" uid="uid://dtmfs4saldsqh" path="res://assets/scenery/Space_background.png" id="2_4npes"]
+[ext_resource type="PackedScene" uid="uid://n1h4tvxxu3e6" path="res://actors/player/player.tscn" id="3_4npes"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q45mr"]
+a = Vector2(0, -15)
+b = Vector2(0, 181)
+
+[node name="Space" type="Node2D"]
+script = ExtResource("1_bv8oe")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+script = ExtResource("1_l6nkh")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(0, -179)
+texture = ExtResource("2_4npes")
+centered = false
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AlienSpawnTimer" type="Timer" parent="Timers"]
+one_shot = true
+autostart = true
+
+[node name="SquidSpawnTimer" type="Timer" parent="Timers"]
+one_shot = true
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("3_4npes")]
+position = Vector2(178, 168)
+
+[node name="Barriers" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Barriers"]
+position = Vector2(360, 0)
+shape = SubResource("SegmentShape2D_q45mr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers"]
+shape = SubResource("SegmentShape2D_q45mr")
+
+[connection signal="timeout" from="Timers/AlienSpawnTimer" to="." method="_on_alien_spawn_timer_timeout"]
+[connection signal="timeout" from="Timers/SquidSpawnTimer" to="." method="_on_squid_spawn_timer_timeout"]
+[connection signal="timeout" from="Timers/DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]

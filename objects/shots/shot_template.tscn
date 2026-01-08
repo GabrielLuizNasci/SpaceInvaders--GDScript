@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://2n6hldj1ell3"]
+
+[ext_resource type="Script" uid="uid://qblltgvt3l6b" path="res://objects/shots/shot.gd" id="1_mfkx3"]
+
+[node name="ShotTemplate" type="CharacterBody2D" groups=["Shot"]]
+rotation = 1.5707964
+script = ExtResource("1_mfkx3")
+speed = 300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.8125001, -2.2351742e-07)
+rotation = -1.5707964
+scale = Vector2(0.18750001, 0.19921875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.24999999)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b31dvxvu7ovti"]
+
+[ext_resource type="Script" uid="uid://x10r0bcrc2dh" path="res://actors/enemies/base_alien.gd" id="1_bs05l"]
+
+[node name="BaseAlien" type="CharacterBody2D"]
+script = ExtResource("1_bs05l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="MoveTimer" type="Timer" parent="Timers" groups=["Enemy"]]
+wait_time = 0.75
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timers/MoveTimer" to="." method="_on_move_timer_timeout"]
