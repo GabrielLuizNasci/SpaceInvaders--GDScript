@@ -16,4 +16,4 @@ func _physics_process(_delta: float) -> void:
 	
 	if global_position.y < -50 or global_position.y > get_viewport_rect().size.y + 50:
 		queue_free() 
-	move_and_slide()
+	move_and_slide()	

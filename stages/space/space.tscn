@@ -33,6 +33,8 @@ autostart = true
 one_shot = true
 autostart = true
 
+[node name="PinkSpawnTimer" type="Timer" parent="Timers"]
+
 [node name="DifficultyTimer" type="Timer" parent="Timers"]
 one_shot = true
 
@@ -50,4 +52,5 @@ shape = SubResource("SegmentShape2D_q45mr")
 
 [connection signal="timeout" from="Timers/AlienSpawnTimer" to="." method="_on_alien_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/SquidSpawnTimer" to="." method="_on_squid_spawn_timer_timeout"]
+[connection signal="timeout" from="Timers/PinkSpawnTimer" to="." method="_on_pink_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
