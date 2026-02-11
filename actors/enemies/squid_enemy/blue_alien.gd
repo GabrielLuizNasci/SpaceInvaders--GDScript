@@ -1,4 +1,4 @@
-extends BaseEnemy
+class_name BlueEnemy extends BaseEnemy
 
 @onready var teleport_timer: Timer = $Timers/TeleportTimer
 

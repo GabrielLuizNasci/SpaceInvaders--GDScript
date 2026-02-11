@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://n1h4tvxxu3e6"]
+[gd_scene format=3 uid="uid://n1h4tvxxu3e6"]
 
 [ext_resource type="Script" uid="uid://cp0kuovp12u78" path="res://actors/player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://bifwyayetes26" path="res://assets/sprites/player_spaceship.png" id="1_nvxhs"]
@@ -11,27 +11,27 @@ height = 10.0
 radius = 5.0
 height = 16.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1981102152]
 script = ExtResource("1_ilk7j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=682340230]
 texture_filter = 1
 texture = ExtResource("1_nvxhs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=789670774]
 shape = SubResource("CapsuleShape2D_nvxhs")
 
-[node name="BlastSpawnPoint" type="Node2D" parent="."]
+[node name="BlastSpawnPoint" type="Node2D" parent="." unique_id=633021329]
 position = Vector2(-1, -13)
 
-[node name="FireTimer" type="Timer" parent="."]
+[node name="FireTimer" type="Timer" parent="." unique_id=1408024301]
 wait_time = 0.5
 one_shot = true
 
-[node name="RestartDetectionArea" type="Area2D" parent="."]
+[node name="RestartDetectionArea" type="Area2D" parent="." unique_id=1489975798]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestartDetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RestartDetectionArea" unique_id=2022399266]
 shape = SubResource("CapsuleShape2D_ilk7j")
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

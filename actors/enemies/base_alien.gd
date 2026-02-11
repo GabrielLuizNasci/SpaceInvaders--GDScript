@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name BaseEnemy
 
 @onready var move_timer: Timer = $Timers/MoveTimer
+
 @export var speed: float = 200.0
 
 var can_move : bool = true

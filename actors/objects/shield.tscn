@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1r0mnu2sk045"]
+[gd_scene format=3 uid="uid://c1r0mnu2sk045"]
 
 [ext_resource type="Script" uid="uid://cedwgmm026ovk" path="res://actors/objects/shield.gd" id="1_8dlgl"]
 [ext_resource type="Texture2D" uid="uid://baswogiucd3tv" path="res://assets/sprites/shield.png" id="1_v1ypt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8dlgl"]
-radius = 9.0
+radius = 8.0
 
-[node name="Shield" type="StaticBody2D"]
+[node name="Shield" type="CharacterBody2D" unique_id=458158668]
 script = ExtResource("1_8dlgl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1776098789]
 shape = SubResource("CircleShape2D_8dlgl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2102885062]
 texture_filter = 1
 texture = ExtResource("1_v1ypt")

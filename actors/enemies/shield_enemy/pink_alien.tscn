@@ -1,21 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dofwljxi46tu5"]
+[gd_scene format=3 uid="uid://dofwljxi46tu5"]
 
 [ext_resource type="PackedScene" uid="uid://b31dvxvu7ovti" path="res://actors/enemies/base_alien.tscn" id="1_oq1dx"]
 [ext_resource type="Texture2D" uid="uid://d0vrsguxg0fb4" path="res://assets/sprites/shield_enemy.png" id="2_6vvab"]
+[ext_resource type="Script" uid="uid://ct2iqqtagdd4j" path="res://actors/enemies/shield_enemy/shield_alien.gd" id="2_743jt"]
 [ext_resource type="PackedScene" uid="uid://c1r0mnu2sk045" path="res://actors/objects/shield.tscn" id="3_6vvab"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_743jt"]
 radius = 4.5
 height = 11.0
 
-[node name="PinkAlien" instance=ExtResource("1_oq1dx")]
-speed = 600.0
+[node name="PinkAlien" unique_id=2137656220 instance=ExtResource("1_oq1dx")]
+script = ExtResource("2_743jt")
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.5, 0.5)
+[node name="Shield" parent="." index="0" unique_id=1750311366 instance=ExtResource("3_6vvab")]
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0.5)
 shape = SubResource("CapsuleShape2D_743jt")
 
-[node name="Sprite2D" parent="." index="1" groups=["Enemy"]]
+[node name="Sprite2D" parent="." index="2" groups=["Enemy"]]
 texture = ExtResource("2_6vvab")
 
-[node name="Shield" parent="." index="3" instance=ExtResource("3_6vvab")]
+[node name="MoveTimer" parent="Timers" index="0"]
+wait_time = 0.5

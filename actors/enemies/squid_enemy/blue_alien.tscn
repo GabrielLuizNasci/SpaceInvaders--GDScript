@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk4f5kcy3qqxx"]
+[gd_scene format=3 uid="uid://dk4f5kcy3qqxx"]
 
 [ext_resource type="PackedScene" uid="uid://b31dvxvu7ovti" path="res://actors/enemies/base_alien.tscn" id="1_feinu"]
 [ext_resource type="Script" uid="uid://pcevaj6iv64p" path="res://actors/enemies/squid_enemy/blue_alien.gd" id="2_mt5lx"]
@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt5lx"]
 size = Vector2(18, 15)
 
-[node name="BlueAlien" groups=["Enemy"] instance=ExtResource("1_feinu")]
+[node name="BlueAlien" unique_id=692435076 groups=["Enemy"] instance=ExtResource("1_feinu")]
 script = ExtResource("2_mt5lx")
 teleport_force = 1250.0
 speed = 400.0
@@ -18,7 +18,7 @@ shape = SubResource("RectangleShape2D_mt5lx")
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_q1vvd")
 
-[node name="TeleportTimer" type="Timer" parent="Timers" index="1"]
+[node name="TeleportTimer" type="Timer" parent="Timers" index="1" unique_id=1608855590]
 one_shot = true
 autostart = true
 
